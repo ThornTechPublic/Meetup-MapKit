@@ -1,25 +1,33 @@
-//
-//  ViewController.swift
-//  Meetup-MapKit
-//
-//  Created by Robert Chen on 4/27/16.
-//  Copyright © 2016 Robert Chen. All rights reserved.
-//
-
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("locations: \(locations)")
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("error: \(error)")
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        guard status == .AuthorizedWhenInUse else { return }
+        locationManager.requestLocation()
+    }
+}
+
+
 
