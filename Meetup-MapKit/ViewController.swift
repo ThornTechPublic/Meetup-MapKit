@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         searchBar?.placeholder = "Search for places"
         navigationItem.titleView = searchBar
         definesPresentationContext = true
+        locationSearchTable.mapView = mapView
     }
     
     override func viewDidLoad() {
