@@ -95,7 +95,8 @@ extension ViewController : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
+        let carImage = StyleKit.imageOfCar(size: smallSquare, resizing: .AspectFit)
+        button.setBackgroundImage(carImage, forState: .Normal)
         button.addTarget(self, action: #selector(ViewController.getDirections), forControlEvents: .TouchUpInside)
         pinView?.leftCalloutAccessoryView = button
         return pinView

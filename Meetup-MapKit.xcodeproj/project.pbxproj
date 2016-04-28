@@ -14,6 +14,7 @@
 		FC1A531E1CD15E19003224A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1A531C1CD15E19003224A9 /* LaunchScreen.storyboard */; };
 		FC1A53261CD1659D003224A9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1A53251CD1659D003224A9 /* MapKit.framework */; };
 		FCE4AEB81CD190B10008892D /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4AEB71CD190B10008892D /* LocationSearchTable.swift */; };
+		FCE4AEBA1CD1A51B0008892D /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4AEB91CD1A51B0008892D /* StyleKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FC1A531F1CD15E19003224A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC1A53251CD1659D003224A9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FCE4AEB71CD190B10008892D /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		FCE4AEB91CD1A51B0008892D /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				FC1A53131CD15E19003224A9 /* AppDelegate.swift */,
 				FC1A53151CD15E19003224A9 /* ViewController.swift */,
 				FCE4AEB71CD190B10008892D /* LocationSearchTable.swift */,
+				FCE4AEB91CD1A51B0008892D /* StyleKit.swift */,
 				FC1A53171CD15E19003224A9 /* Main.storyboard */,
 				FC1A531A1CD15E19003224A9 /* Assets.xcassets */,
 				FC1A531C1CD15E19003224A9 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				FCE4AEB81CD190B10008892D /* LocationSearchTable.swift in Sources */,
 				FC1A53161CD15E19003224A9 /* ViewController.swift in Sources */,
+				FCE4AEBA1CD1A51B0008892D /* StyleKit.swift in Sources */,
 				FC1A53141CD15E19003224A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
