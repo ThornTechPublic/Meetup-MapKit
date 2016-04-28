@@ -13,6 +13,8 @@ class LocationSearchTable: UITableViewController {
     var mapView: MKMapView? = nil
     var matchingItems: [MKMapItem] = []
     
+    var handleMapSearchDelegate:HandleMapSearch? = nil
+
     func convertEmptyToNil(string: String?) -> String? {
         return (string ?? "").isEmpty ? nil : string
     }
@@ -55,5 +57,13 @@ extension LocationSearchTable {
         cell.textLabel?.text = selectedItem.placemark.name
         cell.detailTextLabel?.text = parseAddress(selectedItem.placemark)
         return cell
+    }
+}
+
+extension LocationSearchTable {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedItem = matchingItems[indexPath.row].placemark
+        handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

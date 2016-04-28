@@ -1,6 +1,10 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -9,6 +13,8 @@ class ViewController: UIViewController {
 
     var resultSearchController: UISearchController? = nil
     
+    var selectedPin:MKPlacemark? = nil
+
     func setupSearchTable(){
         guard let locationSearchTable = storyboard?.instantiateViewControllerWithIdentifier(String(LocationSearchTable)) as? LocationSearchTable else { return }
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -19,6 +25,7 @@ class ViewController: UIViewController {
         navigationItem.titleView = searchBar
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearchDelegate = self
     }
     
     override func viewDidLoad() {
@@ -49,5 +56,22 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-
+extension ViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark){
+        // cache the pin
+        selectedPin = placemark
+        // clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        let city = placemark.locality
+        let state = placemark.administrativeArea
+        annotation.subtitle = [city, state].flatMap { $0 }.joinWithSeparator(", ")
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        mapView.setRegion(region, animated: true)
+    }
+}
 
