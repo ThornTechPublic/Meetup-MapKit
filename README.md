@@ -157,6 +157,8 @@ Pro-tip: Point out that there is **NO** segue to the table
 TODO:
 Need a good analogy of the UISearchController. Something small that dangles off the bigger thing, and controls whether the big thing shows up. Venetian blinds?
 
+Note: `UISearchController` has a built-in search bar that's already wired up. Use this one -- don't supply your own.
+
 Set up the table. Maybe write everything out as pseudo-code first.
 
 ```
