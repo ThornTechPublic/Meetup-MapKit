@@ -6,6 +6,8 @@ Build and run the project. Also follow along with the commit history.
 
 I'll be following the steps below, in order. I'll try to get as far as I can while live-coding. Will fall back to just copying and pasting large swaths of code when people start getting up to leave.
 
+For Location APIs, see: http://nshipster.com/ios9/
+
 ## Get Location
 
 In `ViewController.swift`:
