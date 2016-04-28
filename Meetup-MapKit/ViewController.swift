@@ -3,6 +3,8 @@ import MapKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -16,7 +18,10 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("locations: \(locations)")
+        guard let currentLocation = locations.first else { return }
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
