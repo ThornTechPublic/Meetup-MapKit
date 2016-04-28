@@ -106,7 +106,7 @@ class StyleKit: NSObject {
     CGContextSaveGState(context)
     CGContextTranslateCTM(context, 4, 3)
     facar.usesEvenOddFillRule = true
-    UIColor.blackColor().setFill()
+    UIColor.orangeColor().setFill()
     facar.fill()
     CGContextRestoreGState(context)
     
